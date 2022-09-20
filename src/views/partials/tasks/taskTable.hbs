@@ -1,0 +1,40 @@
+{{#if tasks}}
+<table class="table table-bordered table-hover table-dark">
+	<thead>
+		<tr>
+			<th>N.</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Operation</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each tasks}} {{!-- each es un bucle de handlebar y task y un especie de prop que le llega con la info de la db de
+		otro archivo --}}
+		<tr>
+			<td>{{@index}}</td> {{!--esto es para egregaar un indec de acuerdo al bucle--}}
+			<td>{{title}}</td>
+			<td>{{description}}</td>
+			<td>
+				{{#if done}}
+				<a href="/tasks/{{_id}}/toggleDone" class="btn btn-dark">Undone</a>
+				{{else}}
+				<a href="/tasks/{{_id}}/toggleDone" class="btn btn-success">Done</a>
+				{{/if}}
+
+				<a href="/tasks/{{_id}}/delete" class="btn btn-danger">Delete</a>
+				<a href="/tasks/{{_id}}/edit" class="btn btn-info">Update</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{else}}
+<div class="h-100 d-flex align-items-center justify-content-center">
+	<div class="text-center text-white ">
+		<h1>No hay tares</h1>
+		<img src="icons/icon.svg" class="w-75">
+	</div>
+</div>
+{{/if}}
