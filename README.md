@@ -20,5 +20,6 @@
 ### Scripts
 - dev -> arranca servidor de desarrollo
 - build -> hace el empaquetado de produccion
+- start -> Esto lo ejecuta heroku en produccion
 
 
